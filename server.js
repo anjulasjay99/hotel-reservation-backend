@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const reservations = require("./routes/reservations-routes");
+const paymentsRouter = require("./Routes/payments");
+
 
 const app = express();
 dotenv.config();
@@ -28,6 +30,9 @@ connection.once("open", () => {
 //
 app.use('/reservation',reservations)
 
+
+
+app.use("/payments", paymentsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is up and running on port number ${PORT}`);
