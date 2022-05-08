@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 
-/* const URL = process.env.MONGODB_URL;
+const URL = process.env.MONGODB_URL;
 
 mongoose.connect(URL, {
   useNewUrlParser: true,
@@ -23,8 +23,12 @@ mongoose.connect(URL, {
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("Mongo DB connection success!");
-}); */
-//
+});
+
+const paymentsRouter = require("./Routes/payments");
+
+app.use("/payments", paymentsRouter);
+
 app.listen(PORT, () => {
   console.log(`Server is up and running on port number ${PORT}`);
 });
