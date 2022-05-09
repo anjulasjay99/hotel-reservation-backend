@@ -4,12 +4,59 @@ const stripe = require("stripe")(
 );
 
 const rooms = new Map([
-  [1, { priceInCents: 10000, name: "Wonder Lanka, Room 1" }],
-  [2, { priceInCents: 20000, name: "Wonder Lanka, Room 2" }],
+  [
+    1,
+    {
+      priceA: 25000,
+      priceC: 10000,
+      title: "Deluxe King Size",
+      hotel: "Ponna Shehan Resorts",
+    },
+  ],
+  [
+    2,
+    {
+      priceA: 35000,
+      priceC: 15000,
+      title: "King Size Sleigh Bed",
+      hotel: "Ponna Shehan Resorts",
+    },
+  ],
+  [
+    3,
+    {
+      priceA: 45000,
+      priceC: 20000,
+      title: "Compact Double",
+      hotel: "Ponna Shehan Resorts",
+    },
+  ],
+  [
+    4,
+    {
+      priceA: 45000,
+      priceC: 20000,
+      title: "Deluxe Twin/Large Double",
+      hotel: "Ponna Shehan Resorts",
+    },
+  ],
+  [
+    5,
+    {
+      priceA: 45000,
+      priceC: 20000,
+      title: "King Size Four Poster",
+      hotel: "Ponna Shehan Resorts",
+    },
+  ],
 ]);
 
 router.route("/").post(async (req, res) => {
-  const { roomId } = req.body;
+  const { roomId, noOfChildren, noOfAdults } = req.body;
+
+  let totalPayment =
+    rooms.get(roomId).priceA * noOfAdults +
+    rooms.get(roomId).priceC * noOfChildren;
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -18,11 +65,11 @@ router.route("/").post(async (req, res) => {
       line_items: [
         {
           price_data: {
-            currency: "usd",
+            currency: "lkr",
             product_data: {
-              name: rooms.get(roomId).name,
+              name: rooms.get(roomId).title + ", " + rooms.get(roomId).hotel,
             },
-            unit_amount: rooms.get(roomId).priceInCents,
+            unit_amount: totalPayment * 100,
           },
           quantity: 1,
         },
