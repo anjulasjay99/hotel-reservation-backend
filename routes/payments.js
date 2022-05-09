@@ -10,7 +10,7 @@ const rooms = new Map([
       priceA: 25000,
       priceC: 10000,
       title: "Deluxe King Size",
-      hotel: "Ponna Shehan Resorts",
+      hotel: "Rivers Edge Nature Resorts",
     },
   ],
   [
@@ -19,7 +19,7 @@ const rooms = new Map([
       priceA: 35000,
       priceC: 15000,
       title: "King Size Sleigh Bed",
-      hotel: "Ponna Shehan Resorts",
+      hotel: "Rivers Edge Nature Resorts",
     },
   ],
   [
@@ -28,7 +28,7 @@ const rooms = new Map([
       priceA: 45000,
       priceC: 20000,
       title: "Compact Double",
-      hotel: "Ponna Shehan Resorts",
+      hotel: "Rivers Edge Nature Resorts",
     },
   ],
   [
@@ -37,7 +37,7 @@ const rooms = new Map([
       priceA: 45000,
       priceC: 20000,
       title: "Deluxe Twin/Large Double",
-      hotel: "Ponna Shehan Resorts",
+      hotel: "Rivers Edge Nature Resorts",
     },
   ],
   [
@@ -46,7 +46,7 @@ const rooms = new Map([
       priceA: 45000,
       priceC: 20000,
       title: "King Size Four Poster",
-      hotel: "Ponna Shehan Resorts",
+      hotel: "Rivers Edge Nature Resorts",
     },
   ],
 ]);
