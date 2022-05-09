@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require("stripe")(
+  "sk_test_51KxCGsI3mE7HAH3hXgCk4GH9ReDvNhQ2LHFXPRJnYY1kgoPSblcYRocLpZq3sJ5tlBs1H25aw5m0Ix1xISkTtkUw008C5TPQDn"
+);
 
 const rooms = new Map([
   [1, { priceInCents: 10000, name: "Wonder Lanka, Room 1" }],
@@ -8,6 +10,7 @@ const rooms = new Map([
 
 router.route("/").post(async (req, res) => {
   const { roomId } = req.body;
+
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
