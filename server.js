@@ -6,7 +6,6 @@ const dotenv = require("dotenv");
 const reservations = require("./routes/reservations-routes");
 const paymentsRouter = require("./Routes/payments");
 
-
 const app = express();
 dotenv.config();
 
@@ -26,11 +25,9 @@ mongoose.connect(URL, {
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("Mongo DB connection success!");
-}); 
+});
 //
-app.use('/reservation',reservations)
-
-
+app.use("/reservation", reservations);
 
 app.use("/payments", paymentsRouter);
 
