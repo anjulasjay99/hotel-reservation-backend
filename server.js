@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const reservations = require("./routes/reservations-routes");
+const paymentsRouter = require("./Routes/payments");
+
 
 const app = express();
 dotenv.config();
@@ -23,9 +26,11 @@ mongoose.connect(URL, {
 const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("Mongo DB connection success!");
-});
+}); 
+//
+app.use('/reservation',reservations)
 
-const paymentsRouter = require("./Routes/payments");
+
 
 app.use("/payments", paymentsRouter);
 
