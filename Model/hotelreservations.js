@@ -20,13 +20,13 @@ const HotelReservations = new schema({
   checkInDate: {
     type: String,
   },
-  checkoutdata: {
+  checkOutDate: {
     type: String,
   },
-  numberOfChildren: {
+  noOfChildren: {
     type: Number,
   },
-  numberOfAdult: {
+  noOfAdults: {
     type: Number,
   },
   room: {
