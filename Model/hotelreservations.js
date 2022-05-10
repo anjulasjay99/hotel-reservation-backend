@@ -32,6 +32,7 @@ const HotelReservations = new schema({
     },
     totalPayment:{
       type:Number,
+
     }
 })
 
