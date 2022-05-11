@@ -43,13 +43,15 @@ Router.route('/update/:id').post(function(req, res) {
             model.firstName = req.body.firstName;
             model.lastName = req.body.lastName;
             model.email = req.body.email;
-            model.cellPhone = req.body.cellPhone;
+            model.telNo = req.body.telNo;
             model.country = req.body.country;
             model.lastName = req.body.lastName;
             model.checkInDate = req.body.checkInDate;
-            model.checkoutdata = req.body.checkoutdata;
-            model.numberOfChildren = req.body.numberOfChildren;
-            model.numberOfAdult = req.body.numberOfAdult;
+            model.checkOutDate = req.body.checkOutDate;
+            model.noOfChildren = req.body.noOfChildren;
+            model.noOfAdults = req.body.noOfAdults;
+            model.room = req.body.room;
+            model.hotel = req.body.hotel;
             model.totalPayment = req.body.totalPayment;
             model.save().then(model=> {
                 res.json('Reservation updated!');
