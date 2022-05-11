@@ -15,6 +15,22 @@ Router.route('/save').post((req,res) =>{
     })
 })
 
+//delete a reservation
+Router.delete('/delete/:id',(req,res) =>{
+    
+    model.findByIdAndRemove(req.params.id).exec((err,deletePost) =>{
+        if(err) return res.status(400).json({
+            message:"Delete unsuccessful",err
+        });
+
+        return res.json({
+            message:"Delete successful",deletePost
+        });
+    });
+});
+
+
+
 //get all reservations
 Router.route('/getAll').get((req,res)=>{
     model.find((err,data)=>{
@@ -62,21 +78,6 @@ Router.route('/update/:id').post(function(req, res) {
     });
 });
   
-//delete a reservation
-Router.route("/delete/:id").delete(async (req, res) => {
-    let id = req.params.id;
-    console.log(id);
-    await model.findOneAndDelete({ id })
-      .then(() => {
-        res.status(200).send({ status: "Reservation Deleted" });
-      })
-      .catch((err) => {
-        console.log(err.message);
-        res
-          .status(500)
-          .send({ status: "Reservation cannot deleted", error: err.message });
-      });
-  });
 
 
 module.exports = Router;

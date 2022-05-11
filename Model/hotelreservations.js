@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const HotelReservations = new schema({
+  
   firstName: {
     type: String,
   },
