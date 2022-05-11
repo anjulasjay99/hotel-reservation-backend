@@ -5,6 +5,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const reservations = require("./routes/reservations-routes");
 const paymentsRouter = require("./routes/payments");
+const USersRouter = require("./routes/traveller-registration-routes");
 
 const app = express();
 dotenv.config();
@@ -31,6 +32,7 @@ app.use("/reservation", reservations);
 
 app.use("/payments", paymentsRouter);
 
+app.use("/user",USersRouter)
 app.listen(PORT, () => {
   console.log(`Server is up and running on port number ${PORT}`);
 });
