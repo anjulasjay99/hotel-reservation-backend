@@ -7,7 +7,7 @@ const reservations = require("./routes/reservations-routes");
 const paymentsRouter = require("./routes/payments");
 const USersRouter = require("./routes/traveller-registration-routes");
 const employeeRouter = require("./routes/employees");
-
+const loginRouter = require("./routes/login");
 const app = express();
 dotenv.config();
 
@@ -36,6 +36,8 @@ app.use("/payments", paymentsRouter);
 app.use("/employees", employeeRouter);
 
 app.use("/user", USersRouter);
+
+app.use("/login" , loginRouter);
 app.listen(PORT, () => {
   console.log(`Server is up and running on port number ${PORT}`);
 });
