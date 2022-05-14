@@ -84,4 +84,19 @@ router.route("/").post(async (req, res) => {
   }
 });
 
+router.route("/CalculatePayment").post((req,res) =>{
+  const { roomId, nAdults, nChildren } = req.body;
+console.log(roomId);
+console.log(nAdults);
+console.log(nChildren);
+console.log(rooms.get(roomId).priceA);
+  let totalPayment =
+  rooms.get(roomId).priceA * nAdults +
+  rooms.get(roomId).priceC * nChildren;
+
+  console.log(totalPayment);
+  res.json(totalPayment);
+
+})
+
 module.exports = router;
