@@ -17,6 +17,9 @@ const EmployeeScheme = new Schema({
   email: {
     type: String,
   },
+  password: {
+    type: String,
+  },
   telNo: {
     type: Number,
   },
