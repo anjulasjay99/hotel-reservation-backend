@@ -3,6 +3,7 @@ const stripe = require("stripe")(
   "sk_test_51KxCGsI3mE7HAH3hXgCk4GH9ReDvNhQ2LHFXPRJnYY1kgoPSblcYRocLpZq3sJ5tlBs1H25aw5m0Ix1xISkTtkUw008C5TPQDn"
 );
 
+//room details
 const rooms = new Map([
   [
     1,
@@ -84,19 +85,12 @@ router.route("/").post(async (req, res) => {
   }
 });
 
-router.route("/CalculatePayment").post((req,res) =>{
+router.route("/calculate").post((req, res) => {
   const { roomId, nAdults, nChildren } = req.body;
-console.log(roomId);
-console.log(nAdults);
-console.log(nChildren);
-console.log(rooms.get(roomId).priceA);
+
   let totalPayment =
-  rooms.get(roomId).priceA * nAdults +
-  rooms.get(roomId).priceC * nChildren;
-
-  console.log(totalPayment);
+    rooms.get(roomId).priceA * nAdults + rooms.get(roomId).priceC * nChildren;
   res.json(totalPayment);
-
-})
+});
 
 module.exports = router;
