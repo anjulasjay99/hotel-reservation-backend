@@ -142,10 +142,6 @@ Router.route("/get/:id").get((req, res) => {
   });
 });
 
-Router.route("/getByUser/:username").get((req, res) => {
-  const username = req.params.username;
-});
-
 //update a reservation
 
 Router.route("/update/:id").post(function (req, res) {
