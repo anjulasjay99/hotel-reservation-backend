@@ -105,6 +105,21 @@ Router.route("/save").post((req, res) => {
     });
 });
 
+
+
+//get all reservations
+Router.route('/getAll').get((req,res)=>{
+  model.find((err,data)=>{
+      if(err){
+          console.log(err)
+      }else{
+          res.json(data)
+      }
+  })
+})
+
+
+
 //delete a reservation
 Router.delete("/delete/:id", (req, res) => {
   model.findByIdAndRemove(req.params.id).exec((err, deletePost) => {
