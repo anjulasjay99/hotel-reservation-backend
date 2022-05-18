@@ -29,7 +29,7 @@ router.route("/check/:username").get(async (req,res) =>{
 router.route("/checkEmp/:username").get(async (req,res) =>{
     const username = req.params.username;
   
-    await User.exists({ email : username }).then((data) =>{
+    await Employee.exists({ email : username }).then((data) =>{
         if(data !==null) {
             res.json(true);
         }
