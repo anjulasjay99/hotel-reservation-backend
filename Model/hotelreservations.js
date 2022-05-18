@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema;
 
 const HotelReservations = new schema({
-  
   firstName: {
     type: String,
   },
@@ -11,6 +10,10 @@ const HotelReservations = new schema({
   },
   email: {
     type: String,
+  },
+  userName: {
+    type: String,
+    required: true,
   },
   telNo: {
     type: String,
