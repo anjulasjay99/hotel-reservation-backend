@@ -47,7 +47,7 @@ router.route("/get/:username").get(async (req,res) =>{
 
     const username = req.params.username;
 
-    await User.findOne({ username }).then((data) =>{
+    await User.find({ userName : username }).then((data) =>{
         res.json(data);
     }).catch((err) => {
         console.log(err);
@@ -60,7 +60,7 @@ router.route("/getEmp/:username").get(async (req,res) =>{
 
     const username = req.params.username;
 
-    await Employee.findOne({ username }).then((data) =>{
+    await Employee.find({ email : username }).then((data) =>{
         res.json(data);
     }).catch((err) => {
         console.log(err);
