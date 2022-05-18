@@ -121,15 +121,18 @@ Router.delete("/delete/:id", (req, res) => {
   });
 });
 
-//get all reservations
-Router.route("/getAll").get((req, res) => {
-  model.find((err, data) => {
-    if (err) {
+//get all reservations made by a particular user
+Router.route("/getAll/:username").get((req, res) => {
+  const username = req.params.username;
+  model
+    .find({ userName: username })
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
       console.log(err);
-    } else {
-      res.json(data);
-    }
-  });
+      res.status(400).json("Error fetching data");
+    });
 });
 
 Router.route("/get/:id").get((req, res) => {

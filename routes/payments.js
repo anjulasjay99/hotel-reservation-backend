@@ -86,10 +86,11 @@ router.route("/").post(async (req, res) => {
 });
 
 router.route("/calculate").post((req, res) => {
-  const { roomId, nAdults, nChildren } = req.body;
+  const { roomId, noOfAdults, noOfChildren } = req.body;
 
   let totalPayment =
-    rooms.get(roomId).priceA * nAdults + rooms.get(roomId).priceC * nChildren;
+    rooms.get(roomId).priceA * noOfAdults +
+    rooms.get(roomId).priceC * noOfChildren;
   res.json(totalPayment);
 });
 
