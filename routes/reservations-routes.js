@@ -121,8 +121,17 @@ Router.delete("/delete/:id", (req, res) => {
   });
 });
 
+Router.route("/getAll").get((req, res) => {
+  model
+    .find()
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => res.status(400).json(err));
+});
+
 //get all reservations made by a particular user
-Router.route("/getAll/:username").get((req, res) => {
+Router.route("/get/:username").get((req, res) => {
   const username = req.params.username;
   model
     .find({ userName: username })
