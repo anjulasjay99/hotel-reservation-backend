@@ -155,7 +155,7 @@ Router.route("/get/:username").get((req, res) => {
     });
 });
 
-Router.route("/getOne/:id").get((req, res) => {
+Router.route("/get/:id").get((req, res) => {
   let id = req.params.id;
   model.findById(id, (err, model) => {
     res.json(model);
