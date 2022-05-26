@@ -105,20 +105,16 @@ Router.route("/save").post((req, res) => {
     });
 });
 
-
-
 //get all reservations
-Router.route('/getAll').get((req,res)=>{
-  model.find((err,data)=>{
-      if(err){
-          console.log(err)
-      }else{
-          res.json(data)
-      }
-  })
-})
-
-
+Router.route("/getAll").get((req, res) => {
+  model.find((err, data) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(data);
+    }
+  });
+});
 
 //delete a reservation
 Router.delete("/delete/:id", (req, res) => {
@@ -159,7 +155,7 @@ Router.route("/get/:username").get((req, res) => {
     });
 });
 
-Router.route("/get/:id").get((req, res) => {
+Router.route("/getOne/:id").get((req, res) => {
   let id = req.params.id;
   model.findById(id, (err, model) => {
     res.json(model);
