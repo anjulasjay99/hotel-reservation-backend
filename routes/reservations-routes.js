@@ -51,6 +51,19 @@ const sendSMS = (rsvData) => {
   });
 };
 
+//get specific reservation
+Router.route("/get/:id").get(async(req,res) =>{
+  const id = req.params.id;
+  console.log(id);
+  await model.findById(id).then((model)=>{
+    res.json(model);
+    console.log(model)
+  }).catch((err) =>{
+    console.log(err);
+  })
+})
+
+
 //send email receipt to customers
 const sendMail = (rsvData) => {
   let emailContent = "";
@@ -159,12 +172,7 @@ Router.route("/get/:username").get((req, res) => {
     });
 });
 
-Router.route("/get/:id").get((req, res) => {
-  let id = req.params.id;
-  model.findById(id, (err, model) => {
-    res.json(model);
-  });
-});
+
 
 //update a reservation
 
